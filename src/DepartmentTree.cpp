@@ -1,6 +1,6 @@
 // DepartmentTree.cpp
 // Purpose: Implementation of the general department tree (Milestone 1).
-// Author: Member C
+// Author: Erin Sen
 #include "DepartmentTree.h"
  
 #include <fstream>

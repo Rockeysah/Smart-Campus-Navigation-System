@@ -56,6 +56,47 @@ Test Environment:
 6. SUMMARY
 
 All tests listed above were performed successfully. The integrated Milestone 1 program compiled and executed successfully.
+7. HASH-7 — HASH TABLE COLLISION DIAGNOSTIC
 
+Test Data Directory: testdata/
+
+Input facilities:
+- F009 | Test Facility A | Library | Testing
+- F010 | Test Facility B | Library | Testing
+- F009 | Duplicate Facility | Library | Testing
+
+Hash table capacity: 11
+
+F009 and F010 both map to bucket 0.
+
+Expected Diagnostic:
+- Accepted facilities: 2
+- Rejected facilities: 1
+- Hash capacity: 11
+- Entries: 2
+- Collisions: 1
+
+Actual Output:
+
+WARNING: facilities.txt line 4: rejected - duplicate facility ID
+facilities.txt: 2 accepted, 1 rejected; Hash capacity: 11, entries: 2, collisions: 1
+
+Additional Duplicate Insertion Test:
+- First insertion: successful
+- Duplicate insertion: rejected
+- Entries remain: 1
+- Collision count remains: 0
+
+Additional Collision Test:
+- Insert F009: successful
+- Insert F010: successful
+- Entries: 2
+- Collisions: 1
+- Both facility IDs can be found successfully.
+
+Result: PASS
+
+Collision Definition:
+A collision occurs when an accepted facility ID is inserted into a bucket that already contains at least one entry. Rejected duplicate IDs do not increase the collision count.
 Note:
 The tests above are the tests performed so far. Additional professor-required Section 10 tests must be added and executed before final submission.

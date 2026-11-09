@@ -1,0 +1,42 @@
+SMART CAMPUS NAVIGATION AND FACILITY ANALYTICS SYSTEM
+CONTRIBUTIONS
+
+1. GROUP MEMBER 1 — Roshan 
+Module: Graph and BFS
+
+Contributions:
+- Implemented the campus graph using an adjacency list.
+- Implemented Breadth-First Search (BFS).
+- Implemented graph display, building degrees, and connectivity analysis.
+- Tested building and connection loading and graph navigation.
+
+Individual Reflection:
+I worked on the Graph and BFS module. I implemented and tested the graph functionality and integrated it with the main program.
+
+2. GROUP MEMBER 2 — Erin
+Module: Department Tree
+
+Contributions:
+- Implemented the department general tree.
+- Implemented department insertion and searching.
+- Implemented hierarchy display and preorder traversal.
+- Tested department loading and tree operations.
+
+Individual Reflection:
+I contributed to the Department Tree module and worked on its integration with the main program.
+
+3. GROUP MEMBER 3 — Anish
+Module: Hash Table and Facility Management
+
+Contributions:
+- Implemented the custom hash table.
+- Used separate chaining to handle collisions.
+- Implemented facility insertion, display, and ID searching.
+- Integrated facility management with the main program.
+
+Individual Reflection:
+I contributed to the Hash Table and Facility Management module and worked on its integration with the main program.
+
+TEAMWORK
+
+All group members contributed to their assigned modules. The modules were integrated into one program and tested together.

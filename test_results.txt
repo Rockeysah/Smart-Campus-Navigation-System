@@ -1,0 +1,61 @@
+SMART CAMPUS NAVIGATION AND FACILITY ANALYTICS SYSTEM
+TEST RESULTS — MILESTONE 1
+
+Test Environment:
+- Language: C++
+- Standard: C++17
+- Compiler: g++
+- Build command:
+  g++ -std=c++17 -Wall -Wextra -Iinclude src/*.cpp -o campus_system
+
+1. FILE LOADING TESTS
+
+| Test | Expected Result | Actual Result | Status |
+|---|---|---|---|
+| Load buildings | 7 accepted, 0 rejected | 7 accepted, 0 rejected | PASS |
+| Load connections | 6 accepted, 0 rejected | 6 accepted, 0 rejected | PASS |
+| Load facilities | 10 accepted, 0 rejected | 10 accepted, 0 rejected | PASS |
+| Load departments | 5 accepted, 0 rejected | 5 accepted, 0 rejected | PASS |
+
+2. GRAPH AND BFS TESTS
+
+| Test | Expected Result | Status |
+|---|---|---|
+| Display campus graph | All 7 buildings and connections displayed | PASS |
+| Display graph statistics | Correct building degrees displayed | PASS |
+| BFS from Library | 6 reachable buildings with correct distances | PASS |
+| BFS from Observatory | Only Observatory reachable | PASS |
+| Connectivity report | 2 components; graph not connected | PASS |
+
+3. FACILITY TESTS
+
+| Test | Expected Result | Status |
+|---|---|---|
+| Display facilities | All 10 facilities displayed | PASS |
+| Search F004 | Computer Lab A found | PASS |
+| Search ABC | Invalid ID format rejected | PASS |
+| Search F999 | Facility not found message displayed | PASS |
+
+4. DEPARTMENT TREE TESTS
+
+| Test | Expected Result | Status |
+|---|---|---|
+| Add Cybersecurity | Department added successfully | PASS |
+| Search Cybersecurity | Correct parent and depth displayed | PASS |
+| Display hierarchy | Department hierarchy displayed correctly | PASS |
+| Preorder traversal | Departments displayed in preorder | PASS |
+
+5. PROGRAM EXECUTION TESTS
+
+| Test | Expected Result | Status |
+|---|---|---|
+| Compile program | Successful compilation | PASS |
+| Run integrated menu | Main menu displayed | PASS |
+| Exit using option 0 | Goodbye message displayed | PASS |
+
+6. SUMMARY
+
+All tests listed above were performed successfully. The integrated Milestone 1 program compiled and executed successfully.
+
+Note:
+The tests above are the tests performed so far. Additional professor-required Section 10 tests must be added and executed before final submission.

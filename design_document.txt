@@ -1,0 +1,95 @@
+SMART CAMPUS NAVIGATION AND FACILITY ANALYTICS SYSTEM
+DESIGN DOCUMENT
+
+1. SYSTEM OVERVIEW
+
+The Smart Campus Navigation and Facility Analytics System is developed in C++ using three main data structures:
+
+- Graph for campus navigation.
+- General Tree for department organization.
+- Hash Table for facility management and searching.
+
+The modules are integrated through one main menu.
+
+2. GRAPH AND BFS MODULE
+
+Class: CampusGraph
+
+The campus graph represents buildings as vertices and connections as edges.
+
+Graph Representation:
+- Uses an adjacency list.
+- Each building stores a list of connected buildings.
+- Connections are undirected.
+
+Breadth-First Search (BFS):
+- Uses a queue to visit buildings level by level.
+- Tracks visited buildings to avoid revisiting them.
+- Calculates the distance from the starting building.
+- Identifies buildings reachable from the starting point.
+
+Main Features:
+- Display campus graph.
+- Display building degrees.
+- Find reachable buildings.
+- Find shortest paths.
+- Report graph connectivity and isolated buildings.
+
+3. DEPARTMENT TREE MODULE
+
+Classes: DepartmentTree and DepartmentNode
+
+The department structure uses a general tree.
+
+Tree Structure:
+- Each node represents a department.
+- A department can have a parent and multiple children.
+- The root department has no parent.
+
+Main Features:
+- Load departments from a file.
+- Add a department under an existing parent.
+- Search for a department.
+- Display the department hierarchy.
+- Perform preorder traversal.
+
+4. HASH TABLE AND FACILITY MODULE
+
+Classes: HashTable and FacilityDatabase
+
+The facility module uses a custom hash table with separate chaining.
+
+Hash Function:
+The hash function processes each character of the facility ID using the formula:
+
+hash = (hash * 31 + character) % table_capacity
+
+The result determines the bucket where the facility is stored.
+
+Collision Handling:
+- Uses separate chaining.
+- Each bucket can store multiple entries.
+- Colliding entries are stored together in the same bucket.
+
+Facility Features:
+- Add and store facilities.
+- Display all facilities.
+- Search facilities by ID.
+- Reject duplicate or incorrectly formatted IDs.
+
+5. INPUT FILES
+
+- buildings.txt: stores building names.
+- connections.txt: stores building connections.
+- departments.txt: stores department-parent relationships.
+- facilities.txt: stores facility IDs, names, buildings, and categories.
+
+6. PROGRAM INTEGRATION
+
+The main.cpp file connects all three modules.
+
+At startup, the program loads the input files and displays one menu. Users can access facility management, graph navigation, and department tree features from that menu.
+
+7. CONCLUSION
+
+The project demonstrates the use of graphs, BFS, general trees, and custom hash tables in a campus management application.

@@ -1,0 +1,5 @@
+Computer Science|NONE
+Mathematics|Computer Science
+Physics|Computer Science
+Software Engineering|Computer Science
+Data Science|Mathematics

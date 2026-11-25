@@ -2,7 +2,9 @@ SMART CAMPUS NAVIGATION AND FACILITY ANALYTICS SYSTEM
 CONTRIBUTIONS
 
 1. GROUP MEMBER 1 — Roshan 
-Module: Graph and BFS
+
+- Shortest Path using BFS
+- Graph Connectivity Report
 
 Contributions:
 - Implemented the campus graph using an adjacency list.

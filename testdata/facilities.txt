@@ -1,0 +1,4 @@
+# FacilityID|FacilityName|BuildingName|Category
+F009|Test Facility A|Library|Testing
+F010|Test Facility B|Library|Testing
+F009|Duplicate Facility|Library|Testing

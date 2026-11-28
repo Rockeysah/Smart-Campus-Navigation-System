@@ -1,6 +1,7 @@
 // DepartmentTree.h
 // Purpose: General tree (any number of children per node) for the academic
-//          department hierarchy: load, add, search, display, preorder.
+//          department hierarchy: load, add, search, display, preorder,
+//          postorder, level-order, and statistics.
 // Author: Erin Sen
 #ifndef DEPARTMENTTREE_H
 #define DEPARTMENTTREE_H
@@ -38,6 +39,18 @@ public:
     // Menu option 9: preorder sequence without indentation.
     void displayPreorder() const;
  
+    // Final menu: postorder sequence (children first, then the node),
+    // siblings in insertion order, without indentation.
+    void displayPostorder() const;
+ 
+    // Final menu: level-order sequence (top to bottom, left to right), built
+    // with a queue, siblings in insertion order, without indentation.
+    void displayLevelOrder() const;
+ 
+    // Final menu: total departments, number of leaves, and tree height.
+    // Empty tree prints total 0, leaves 0, height N/A.
+    void displayStatistics() const;
+ 
     bool isEmpty() const { return root_ == nullptr; }    // true if no departments
  
 private:
@@ -47,7 +60,8 @@ private:
     DepartmentNode* findNode(const std::string& name) const;
     void preorderCollect(const DepartmentNode* n,
                          std::vector<const DepartmentNode*>& out) const;
+    void postorderCollect(const DepartmentNode* n,
+                          std::vector<const DepartmentNode*>& out) const;
 };
  
 #endif
- 

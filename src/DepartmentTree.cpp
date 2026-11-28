@@ -1,3 +1,4 @@
+
 // DepartmentTree.cpp
 // Purpose: Implementation of the general department tree (Milestone 1).
 // Author: Erin Sen
@@ -5,6 +6,7 @@
  
 #include <fstream>
 #include <iostream>
+#include <queue>
  
 namespace {
  
@@ -181,3 +183,60 @@ void DepartmentTree::displayPreorder() const {
     std::cout << "\n";
 }
  
+// Collects nodes in postorder: children (in insertion order) first, then node.
+void DepartmentTree::postorderCollect(const DepartmentNode* n,
+                                      std::vector<const DepartmentNode*>& out) const {
+    if (!n) return;
+    for (std::size_t i = 0; i < n->children.size(); ++i)
+        postorderCollect(n->children[i], out);
+    out.push_back(n);
+}
+ 
+// Prints the postorder sequence on one line, without indentation.
+void DepartmentTree::displayPostorder() const {
+    if (isEmpty()) { std::cout << "No departments are loaded.\n"; return; }
+    std::vector<const DepartmentNode*> order;
+    postorderCollect(root_, order);
+    std::cout << "Postorder: ";
+    for (std::size_t i = 0; i < order.size(); ++i)
+        std::cout << (i ? ", " : "") << order[i]->name;
+    std::cout << "\n";
+}
+ 
+// Prints the level-order sequence on one line. Uses a queue: take the front
+// node, record it, then enqueue its children in insertion order.
+void DepartmentTree::displayLevelOrder() const {
+    if (isEmpty()) { std::cout << "No departments are loaded.\n"; return; }
+    std::queue<const DepartmentNode*> pending;
+    pending.push(root_);
+    std::cout << "Level-order: ";
+    bool first = true;
+    while (!pending.empty()) {
+        const DepartmentNode* n = pending.front();
+        pending.pop();
+        std::cout << (first ? "" : ", ") << n->name;
+        first = false;
+        for (std::size_t i = 0; i < n->children.size(); ++i)
+            pending.push(n->children[i]);
+    }
+    std::cout << "\n";
+}
+ 
+// Prints total departments, leaf count, and height (largest depth).
+void DepartmentTree::displayStatistics() const {
+    if (isEmpty()) {
+        std::cout << "No departments are loaded.\n"
+                  << "Total departments: 0\n"
+                  << "Leaf departments: 0\n"
+                  << "Tree height: N/A\n";
+        return;
+    }
+    int leaves = 0, height = 0;
+    for (std::size_t i = 0; i < nodes_.size(); ++i) {
+        if (nodes_[i]->children.empty()) ++leaves;      // leaf = no children
+        if (nodes_[i]->depth > height) height = nodes_[i]->depth;
+    }
+    std::cout << "Total departments: " << nodes_.size() << "\n"
+              << "Leaf departments: " << leaves << "\n"
+              << "Tree height: " << height << "\n";
+}
